@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Web Socket First App</title>
+        <style>
+            div#log{
+                width: 800px;
+                height: 300px;
+                margin: 0 auto;
+                border: 5px solid black;
+                border-radius: 7px;
+            }
+            div#sendCtrs{
+                width: 255px;
+                margin: 30px auto;
+            }
+            #heading1{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="heading1">Chat App</h1>
+        <div id="log"></div>
+        <div id="sendCtrs">
+            <input type="text" id="test" placeholder="Type your message here...">
+            <button>Send</button>
+        </div>
+        <script>
+            const name= prompt('What is your Name?');
+            const sock = new WebSocket("ws://localhost:5001");
+            sock.onopen = function () {
+                sock.send(JSON.stringify({
+                    type: "name",
+                    data: name
+                }));
+            }
+
+            const log = document.getElementById('log');
+            sock.onmessage = function(event) { //message sever sends back to client
+                console.log(event);
+                const test = JSON.parse(event.data);
+                log.innerHTML += test.name+": "+test.data+"<br>";
+            }
+            document.querySelector('button').onclick = function() {
+                const text = document.getElementById('test').value;
+                sock.send(JSON.stringify({
+                    type: "message",
+                    data: text
+                })) //send to server
+                log.innerHTML += "You: "+text+"<br>";
+            }
+        </script>
+    </body>
+</html>
