@@ -32,9 +32,9 @@ app.get('/api/calculate/:operation', (req, res) => {
       }
       result = calculator.div(x,y);
       break;
-    // case 'percentage':
-    //   result = (num1Parsed / 100) * num2Parsed;
-    //   break;
+    case 'percentage':
+      result = calculator.percentage(x,y);
+      break;
     default:
       return res.status(400).json({ error: 'Invalid operation' });
   }
