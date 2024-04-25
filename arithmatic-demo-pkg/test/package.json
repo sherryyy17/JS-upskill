@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "arithmatic-demo-pkg": "^1.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.4",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.24.4"
+  },
+  "scripts": {
+    "start": "babel-node calc.js"
+  }
+}
