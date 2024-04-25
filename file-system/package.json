@@ -1,0 +1,19 @@
+{
+  "name": "file-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "path": "^0.12.7",
+    "xlsx": "^0.17.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
