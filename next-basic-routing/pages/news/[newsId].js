@@ -6,7 +6,7 @@ const DetailPage = () => {
     const newsId = router.query.newsId;
 
     // Send a request to the backend API
-    // to fetch the news item with newsId
+    // to fetch the news item with newsId 
     
     return (
         <h1>The Details Page {newsId}</h1>
