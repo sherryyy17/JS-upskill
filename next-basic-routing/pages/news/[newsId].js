@@ -9,7 +9,7 @@ const DetailPage = () => {
     // to fetch the news item with newsId
     
     return (
-        <h1>The Detail Page {newsId}</h1>
+        <h1>The Details Page {newsId}</h1>
     )
 }
 
